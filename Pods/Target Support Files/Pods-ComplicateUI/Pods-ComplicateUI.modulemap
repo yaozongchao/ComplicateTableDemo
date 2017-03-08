@@ -1,6 +1,0 @@
-framework module Pods_ComplicateUI {
-  umbrella header "Pods-ComplicateUI-umbrella.h"
-
-  export *
-  module * { export * }
-}
