@@ -12,6 +12,8 @@ import SnapKit
 class ViewController: UIViewController {
     
     var cellCacheMap = Dictionary<NSString, UITableViewCell>()
+    
+    let animatePush = AnimateTransitionPush()
 
     lazy var tableView: UITableView = {
         let view = UITableView.init(frame: CGRect.zero, style: .grouped)
@@ -41,20 +43,33 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
         self.tableView.addSubview(self.refreshControl)
         
         self.view.addSubview(self.tableView)
         //在没有navigationBar的情况下，statusBar的高度不被考虑，下面的方法空出这20像素
-        self.tableView.snp.makeConstraints { (make) in
-            make.top.equalTo((self.topLayoutGuide as AnyObject as! UIView).snp.bottom)
-            make.leading.trailing.equalTo(self.view)
-            make.bottom.equalTo((self.bottomLayoutGuide as AnyObject as! UIView).snp.top)
+        if (self.navigationController?.isNavigationBarHidden)! {
+            self.tableView.snp.makeConstraints { (make) in
+                make.top.equalTo((self.topLayoutGuide as AnyObject as! UIView).snp.bottom)
+                make.leading.trailing.equalTo(self.view)
+                make.bottom.equalTo((self.bottomLayoutGuide as AnyObject as! UIView).snp.top)
+            }
+        }
+        else {
+            self.tableView.snp.makeConstraints { (make) in
+                make.edges.equalTo(self.view)
+            }
         }
         let path = Bundle.main.path(forResource: "ORDER.JSON", ofType: nil)
         let jsonStr = try? NSString.init(contentsOfFile: path!, encoding: String.Encoding.utf8.rawValue)
         let object = KDTableViewObject.createObject(jsonStr: jsonStr as String?)
         self.viewModel = KDTableViewModel.viewModel(model: object)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -180,7 +195,21 @@ extension ViewController: UICollectionViewDataSource {
 
 extension ViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Collection view at row \(collectionView.tag) selected index path \(indexPath)")
+        let cell = collectionView.cellForItem(at: indexPath)
+        let model = self.viewModel?.collectionCellViewModel[indexPath.row]
+        let rectToView = cell?.convert((cell?.bounds)!, to: self.view)
+        let viewController = KDDetailViewController.init(detail: model?.title, originRect: rectToView)
+        self.animatePush.originRect = rectToView
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
+extension ViewController: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if operation == UINavigationControllerOperation.push {
+            return self.animatePush
+        }
+        return nil
     }
 }
 

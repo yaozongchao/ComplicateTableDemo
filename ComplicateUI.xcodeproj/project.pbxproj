@@ -22,6 +22,10 @@
 		331B6B911E6EA6C9008AE630 /* ORDER.JSON in Resources */ = {isa = PBXBuildFile; fileRef = 331B6B901E6EA6C9008AE630 /* ORDER.JSON */; };
 		33E0037C1E6EAC8B00AEC000 /* KDCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E0037B1E6EAC8B00AEC000 /* KDCollectionCell.swift */; };
 		33E0037E1E6EAE9700AEC000 /* KDTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E0037D1E6EAE9700AEC000 /* KDTableViewCell.swift */; };
+		33E0038F1E70FE8400AEC000 /* KDDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E0038E1E70FE8400AEC000 /* KDDetailViewController.swift */; };
+		33E003921E7146DA00AEC000 /* AnimateTransitionPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E003911E7146DA00AEC000 /* AnimateTransitionPush.swift */; };
+		33E003941E7146F500AEC000 /* AnimateTransitionPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E003931E7146F500AEC000 /* AnimateTransitionPop.swift */; };
+		33E003961E714D3500AEC000 /* KDTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E003951E714D3500AEC000 /* KDTools.swift */; };
 		D14F267B383864B203EBE3D0 /* Pods_ComplicateUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF4A98EC578E79DEAB3C4E96 /* Pods_ComplicateUI.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +47,10 @@
 		331B6B901E6EA6C9008AE630 /* ORDER.JSON */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ORDER.JSON; sourceTree = "<group>"; };
 		33E0037B1E6EAC8B00AEC000 /* KDCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCollectionCell.swift; sourceTree = "<group>"; };
 		33E0037D1E6EAE9700AEC000 /* KDTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDTableViewCell.swift; sourceTree = "<group>"; };
+		33E0038E1E70FE8400AEC000 /* KDDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDDetailViewController.swift; sourceTree = "<group>"; };
+		33E003911E7146DA00AEC000 /* AnimateTransitionPush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimateTransitionPush.swift; sourceTree = "<group>"; };
+		33E003931E7146F500AEC000 /* AnimateTransitionPop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimateTransitionPop.swift; sourceTree = "<group>"; };
+		33E003951E714D3500AEC000 /* KDTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDTools.swift; sourceTree = "<group>"; };
 		40AE8533B0D01205A4EEFEF4 /* Pods-ComplicateUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComplicateUI.release.xcconfig"; path = "Pods/Target Support Files/Pods-ComplicateUI/Pods-ComplicateUI.release.xcconfig"; sourceTree = "<group>"; };
 		ECB7D149E2D1A78A23CC9B04 /* Pods-ComplicateUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComplicateUI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ComplicateUI/Pods-ComplicateUI.debug.xcconfig"; sourceTree = "<group>"; };
 		EF4A98EC578E79DEAB3C4E96 /* Pods_ComplicateUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ComplicateUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +105,10 @@
 				331B6B8E1E6EA152008AE630 /* KDTableViewObject.swift */,
 				33E0037B1E6EAC8B00AEC000 /* KDCollectionCell.swift */,
 				33E0037D1E6EAE9700AEC000 /* KDTableViewCell.swift */,
+				33E0038E1E70FE8400AEC000 /* KDDetailViewController.swift */,
+				33E003911E7146DA00AEC000 /* AnimateTransitionPush.swift */,
+				33E003931E7146F500AEC000 /* AnimateTransitionPop.swift */,
+				33E003951E714D3500AEC000 /* KDTools.swift */,
 			);
 			path = ComplicateUI;
 			sourceTree = "<group>";
@@ -249,10 +261,14 @@
 				331B6B811E6E5337008AE630 /* KDCollectionViewTableCell.swift in Sources */,
 				33E0037E1E6EAE9700AEC000 /* KDTableViewCell.swift in Sources */,
 				331B6B831E6E94DB008AE630 /* KDCollectionCellViewModel.swift in Sources */,
+				33E0038F1E70FE8400AEC000 /* KDDetailViewController.swift in Sources */,
 				331B6B871E6E957F008AE630 /* KDTableCellViewModel.swift in Sources */,
 				331B6B711E6E51A4008AE630 /* ViewController.swift in Sources */,
 				331B6B6F1E6E51A4008AE630 /* AppDelegate.swift in Sources */,
 				331B6B8F1E6EA152008AE630 /* KDTableViewObject.swift in Sources */,
+				33E003961E714D3500AEC000 /* KDTools.swift in Sources */,
+				33E003921E7146DA00AEC000 /* AnimateTransitionPush.swift in Sources */,
+				33E003941E7146F500AEC000 /* AnimateTransitionPop.swift in Sources */,
 				331B6B851E6E94EF008AE630 /* KDTableViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
