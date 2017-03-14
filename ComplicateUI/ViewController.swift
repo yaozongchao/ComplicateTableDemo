@@ -64,7 +64,6 @@ class ViewController: UIViewController {
         let jsonStr = try? NSString.init(contentsOfFile: path!, encoding: String.Encoding.utf8.rawValue)
         let object = KDTableViewObject.createObject(jsonStr: jsonStr as String?)
         self.viewModel = KDTableViewModel.viewModel(model: object)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -115,13 +114,15 @@ extension ViewController: UITableViewDataSource {
             return 1
         case 1:
             return (innerViewModel.tableCellViewModel.count)
+        case 2:
+            return 1
         default:
             return 0
         }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -144,6 +145,18 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "KDCollectionViewTableCell", for: indexPath)
+            if let innerCell = cell as? KDCollectionViewTableCell {
+                innerCell.bindData(model: self.viewModel?.collectionCellViewModel[indexPath.row])
+                innerCell.collectionView.tag = 0
+            }
+            return cell
+        }
+        else if indexPath.section == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "KDCollectionViewTableCell", for: indexPath)
+            if let innerCell = cell as? KDCollectionViewTableCell {
+                innerCell.bindData(model: self.viewModel?.waterFlowCellViewModel[indexPath.row])
+                innerCell.collectionView.tag = 2
+            }
             return cell
         }
         else {
@@ -156,49 +169,78 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if cell is KDCollectionViewTableCell {
-            let collectCell = cell as! KDCollectionViewTableCell
-            collectCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, index: indexPath.row)
-            let horizontalOffset = storedOffsets[indexPath.row] ?? 0
-            collectCell.collectionView.setContentOffset(CGPoint(x: horizontalOffset, y: 0), animated: false)
+        if indexPath.section == 0 {
+            if cell is KDCollectionViewTableCell {
+                let collectCell = cell as! KDCollectionViewTableCell
+                collectCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, index: indexPath.row)
+                let horizontalOffset = storedOffsets[indexPath.row] ?? 0
+                collectCell.collectionView.setContentOffset(CGPoint(x: horizontalOffset, y: 0), animated: false)
+            }
+        }
+        else if indexPath.section == 2 {
+            if cell is KDCollectionViewTableCell {
+                let collectCell = cell as! KDCollectionViewTableCell
+                collectCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, index: indexPath.row)
+            }
         }
     }
     
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if cell is KDCollectionViewTableCell {
-            let collectCell = cell as! KDCollectionViewTableCell
-            storedOffsets[indexPath.row] = collectCell.collectionView.contentOffset.x
+        if indexPath.section == 0 {
+            if cell is KDCollectionViewTableCell {
+                let collectCell = cell as! KDCollectionViewTableCell
+                storedOffsets[indexPath.row] = collectCell.collectionView.contentOffset.x
+            }
         }
     }
 }
 
 extension ViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        if collectionView.tag == 0 {
+            return 1
+        }
+        else {
+            return 1
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let innerViewModel = self.viewModel else {
             return 0
         }
-        return innerViewModel.collectionCellViewModel.count
+        if collectionView.tag == 0 {
+            return innerViewModel.collectionCellViewModel.count
+        }
+        else {
+            return innerViewModel.waterFlowCellViewModel.count
+        }
     }
         
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "KDCollectionCell", for: indexPath)
-        if let innerCell = cell as? KDCollectionCell {
-            innerCell.bindData(viewModel: self.viewModel?.collectionCellViewModel[indexPath.row])
+        if collectionView.tag == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "KDCollectionCell", for: indexPath)
+            if let innerCell = cell as? KDCollectionCell {
+                innerCell.bindData(viewModel: self.viewModel?.collectionCellViewModel[indexPath.row] as! KDHorizontalScrollCellViewModel?)
+            }
+            return cell
         }
-        return cell
+        else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "KDWaterFlowCell", for: indexPath)
+            if let innerCell = cell as? KDWaterFlowCell {
+                innerCell.bindData(viewModel: self.viewModel?.waterFlowCellViewModel[indexPath.row] as! KDWaterFlowCellViewModel?)
+            }
+            return cell
+        }
     }
 }
 
 extension ViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
-        let model = self.viewModel?.collectionCellViewModel[indexPath.row]
+        let model = self.viewModel?.collectionCellViewModel[indexPath.row] as! KDHorizontalScrollCellViewModel
         let rectToView = cell?.convert((cell?.bounds)!, to: self.view)
-        let viewController = KDDetailViewController.init(detail: model?.title, originRect: rectToView)
+        let viewController = KDDetailViewController.init(detail: model.title, originRect: rectToView)
         self.animatePush.originRect = rectToView
         self.navigationController?.pushViewController(viewController, animated: true)
     }

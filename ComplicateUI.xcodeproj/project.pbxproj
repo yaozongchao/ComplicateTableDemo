@@ -13,13 +13,18 @@
 		331B6B761E6E51A4008AE630 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 331B6B751E6E51A4008AE630 /* Assets.xcassets */; };
 		331B6B791E6E51A4008AE630 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 331B6B771E6E51A4008AE630 /* LaunchScreen.storyboard */; };
 		331B6B811E6E5337008AE630 /* KDCollectionViewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331B6B801E6E5337008AE630 /* KDCollectionViewTableCell.swift */; };
-		331B6B831E6E94DB008AE630 /* KDCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331B6B821E6E94DB008AE630 /* KDCollectionCellViewModel.swift */; };
+		331B6B831E6E94DB008AE630 /* KDHorizontalScrollCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331B6B821E6E94DB008AE630 /* KDHorizontalScrollCellViewModel.swift */; };
 		331B6B851E6E94EF008AE630 /* KDTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331B6B841E6E94EF008AE630 /* KDTableViewModel.swift */; };
 		331B6B871E6E957F008AE630 /* KDTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331B6B861E6E957F008AE630 /* KDTableCellViewModel.swift */; };
 		331B6B8B1E6E9E6E008AE630 /* KDCollectCellObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331B6B8A1E6E9E6E008AE630 /* KDCollectCellObject.swift */; };
 		331B6B8D1E6E9E87008AE630 /* KDTableCellObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331B6B8C1E6E9E87008AE630 /* KDTableCellObject.swift */; };
 		331B6B8F1E6EA152008AE630 /* KDTableViewObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331B6B8E1E6EA152008AE630 /* KDTableViewObject.swift */; };
 		331B6B911E6EA6C9008AE630 /* ORDER.JSON in Resources */ = {isa = PBXBuildFile; fileRef = 331B6B901E6EA6C9008AE630 /* ORDER.JSON */; };
+		3349E6CA1E77E70E00C23680 /* KDWaterFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3349E6C91E77E70E00C23680 /* KDWaterFlowLayout.swift */; };
+		3349E6CC1E77FE8100C23680 /* KDWaterFlowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3349E6CB1E77FE8100C23680 /* KDWaterFlowCell.swift */; };
+		3377005B1E72B00900ADAE49 /* KDCollectCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3377005A1E72B00900ADAE49 /* KDCollectCellViewModelProtocol.swift */; };
+		3377005E1E72B76D00ADAE49 /* KDWaterFlowCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3377005D1E72B76D00ADAE49 /* KDWaterFlowCellViewModel.swift */; };
+		337700601E72CB6400ADAE49 /* KDWaterFlowObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3377005F1E72CB6400ADAE49 /* KDWaterFlowObject.swift */; };
 		33E0037C1E6EAC8B00AEC000 /* KDCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E0037B1E6EAC8B00AEC000 /* KDCollectionCell.swift */; };
 		33E0037E1E6EAE9700AEC000 /* KDTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E0037D1E6EAE9700AEC000 /* KDTableViewCell.swift */; };
 		33E0038F1E70FE8400AEC000 /* KDDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E0038E1E70FE8400AEC000 /* KDDetailViewController.swift */; };
@@ -38,13 +43,18 @@
 		331B6B781E6E51A4008AE630 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		331B6B7A1E6E51A4008AE630 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		331B6B801E6E5337008AE630 /* KDCollectionViewTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCollectionViewTableCell.swift; sourceTree = "<group>"; };
-		331B6B821E6E94DB008AE630 /* KDCollectionCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCollectionCellViewModel.swift; sourceTree = "<group>"; };
+		331B6B821E6E94DB008AE630 /* KDHorizontalScrollCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDHorizontalScrollCellViewModel.swift; sourceTree = "<group>"; };
 		331B6B841E6E94EF008AE630 /* KDTableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDTableViewModel.swift; sourceTree = "<group>"; };
 		331B6B861E6E957F008AE630 /* KDTableCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDTableCellViewModel.swift; sourceTree = "<group>"; };
 		331B6B8A1E6E9E6E008AE630 /* KDCollectCellObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCollectCellObject.swift; sourceTree = "<group>"; };
 		331B6B8C1E6E9E87008AE630 /* KDTableCellObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDTableCellObject.swift; sourceTree = "<group>"; };
 		331B6B8E1E6EA152008AE630 /* KDTableViewObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDTableViewObject.swift; sourceTree = "<group>"; };
 		331B6B901E6EA6C9008AE630 /* ORDER.JSON */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ORDER.JSON; sourceTree = "<group>"; };
+		3349E6C91E77E70E00C23680 /* KDWaterFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDWaterFlowLayout.swift; sourceTree = "<group>"; };
+		3349E6CB1E77FE8100C23680 /* KDWaterFlowCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDWaterFlowCell.swift; sourceTree = "<group>"; };
+		3377005A1E72B00900ADAE49 /* KDCollectCellViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCollectCellViewModelProtocol.swift; sourceTree = "<group>"; };
+		3377005D1E72B76D00ADAE49 /* KDWaterFlowCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDWaterFlowCellViewModel.swift; sourceTree = "<group>"; };
+		3377005F1E72CB6400ADAE49 /* KDWaterFlowObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDWaterFlowObject.swift; sourceTree = "<group>"; };
 		33E0037B1E6EAC8B00AEC000 /* KDCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCollectionCell.swift; sourceTree = "<group>"; };
 		33E0037D1E6EAE9700AEC000 /* KDTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDTableViewCell.swift; sourceTree = "<group>"; };
 		33E0038E1E70FE8400AEC000 /* KDDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDDetailViewController.swift; sourceTree = "<group>"; };
@@ -97,7 +107,7 @@
 				331B6B771E6E51A4008AE630 /* LaunchScreen.storyboard */,
 				331B6B7A1E6E51A4008AE630 /* Info.plist */,
 				331B6B801E6E5337008AE630 /* KDCollectionViewTableCell.swift */,
-				331B6B821E6E94DB008AE630 /* KDCollectionCellViewModel.swift */,
+				331B6B821E6E94DB008AE630 /* KDHorizontalScrollCellViewModel.swift */,
 				331B6B841E6E94EF008AE630 /* KDTableViewModel.swift */,
 				331B6B861E6E957F008AE630 /* KDTableCellViewModel.swift */,
 				331B6B8A1E6E9E6E008AE630 /* KDCollectCellObject.swift */,
@@ -109,6 +119,11 @@
 				33E003911E7146DA00AEC000 /* AnimateTransitionPush.swift */,
 				33E003931E7146F500AEC000 /* AnimateTransitionPop.swift */,
 				33E003951E714D3500AEC000 /* KDTools.swift */,
+				3377005A1E72B00900ADAE49 /* KDCollectCellViewModelProtocol.swift */,
+				3377005D1E72B76D00ADAE49 /* KDWaterFlowCellViewModel.swift */,
+				3377005F1E72CB6400ADAE49 /* KDWaterFlowObject.swift */,
+				3349E6C91E77E70E00C23680 /* KDWaterFlowLayout.swift */,
+				3349E6CB1E77FE8100C23680 /* KDWaterFlowCell.swift */,
 			);
 			path = ComplicateUI;
 			sourceTree = "<group>";
@@ -257,16 +272,21 @@
 			files = (
 				331B6B8D1E6E9E87008AE630 /* KDTableCellObject.swift in Sources */,
 				331B6B8B1E6E9E6E008AE630 /* KDCollectCellObject.swift in Sources */,
+				3349E6CC1E77FE8100C23680 /* KDWaterFlowCell.swift in Sources */,
+				3377005B1E72B00900ADAE49 /* KDCollectCellViewModelProtocol.swift in Sources */,
 				33E0037C1E6EAC8B00AEC000 /* KDCollectionCell.swift in Sources */,
 				331B6B811E6E5337008AE630 /* KDCollectionViewTableCell.swift in Sources */,
 				33E0037E1E6EAE9700AEC000 /* KDTableViewCell.swift in Sources */,
-				331B6B831E6E94DB008AE630 /* KDCollectionCellViewModel.swift in Sources */,
+				331B6B831E6E94DB008AE630 /* KDHorizontalScrollCellViewModel.swift in Sources */,
 				33E0038F1E70FE8400AEC000 /* KDDetailViewController.swift in Sources */,
 				331B6B871E6E957F008AE630 /* KDTableCellViewModel.swift in Sources */,
 				331B6B711E6E51A4008AE630 /* ViewController.swift in Sources */,
 				331B6B6F1E6E51A4008AE630 /* AppDelegate.swift in Sources */,
+				3377005E1E72B76D00ADAE49 /* KDWaterFlowCellViewModel.swift in Sources */,
 				331B6B8F1E6EA152008AE630 /* KDTableViewObject.swift in Sources */,
+				3349E6CA1E77E70E00C23680 /* KDWaterFlowLayout.swift in Sources */,
 				33E003961E714D3500AEC000 /* KDTools.swift in Sources */,
+				337700601E72CB6400ADAE49 /* KDWaterFlowObject.swift in Sources */,
 				33E003921E7146DA00AEC000 /* AnimateTransitionPush.swift in Sources */,
 				33E003941E7146F500AEC000 /* AnimateTransitionPop.swift in Sources */,
 				331B6B851E6E94EF008AE630 /* KDTableViewModel.swift in Sources */,

@@ -1,15 +1,14 @@
 //
-//  KDCollectionCell.swift
+//  KDWaterFlowCell.swift
 //  ComplicateUI
 //
-//  Created by 姚宗超 on 2017/3/7.
+//  Created by 姚宗超 on 2017/3/14.
 //  Copyright © 2017年 姚宗超. All rights reserved.
 //
 
 import UIKit
-import SnapKit
 
-class KDCollectionCell: UICollectionViewCell {
+class KDWaterFlowCell: UICollectionViewCell {
     lazy var titleLabel: UILabel = {
         let label = UILabel.init(frame: CGRect.zero)
         return label
@@ -29,7 +28,7 @@ class KDCollectionCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func bindData(viewModel: KDHorizontalScrollCellViewModel?) {
+    func bindData(viewModel: KDWaterFlowCellViewModel?) {
         guard let innerViewModel = viewModel else {
             return
         }

@@ -12,14 +12,7 @@ import SnapKit
 class KDCollectionViewTableCell: UITableViewCell {
     
     lazy var collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout.init()
-        layout.scrollDirection = UICollectionViewScrollDirection.horizontal
-        layout.sectionInset = UIEdgeInsets(top: 4, left: 5, bottom: 4, right: 5)
-        layout.minimumLineSpacing = 5
-        layout.itemSize = CGSize(width: 91, height: 91)
-
-        let view = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: layout)
-        view.register(KDCollectionCell.self, forCellWithReuseIdentifier: "KDCollectionCell")
+        let view = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout.init())
         return view
     }()
     
@@ -44,6 +37,23 @@ class KDCollectionViewTableCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func registerCellClass(model: KDCollectionCellViewModelProtocol?) {
+        guard let innerViewModel = model else {
+            return
+        }
+        
+        for cls in innerViewModel.cellClassArray {
+            self.collectionView.register(cls, forCellWithReuseIdentifier: "\(cls)")
+        }
+    }
+    
+    func bindData(model: KDCollectionCellViewModelProtocol?) {
+        guard let innerViewModel = model else {
+            return
+        }
+        self.collectionView.collectionViewLayout = innerViewModel.viewLayout
     }
     
     func setCollectionViewDataSourceDelegate(dataSourceDelegate delegate: UICollectionViewDelegate & UICollectionViewDataSource, index: NSInteger) {

@@ -10,7 +10,9 @@ import UIKit
 
 class KDTableViewModel: NSObject {
     var tableCellViewModel = [KDTableCellViewModel]()
-    var collectionCellViewModel = [KDCollectionCellViewModel]()
+    var collectionCellViewModel = [KDCollectionCellViewModelProtocol]()
+    var waterFlowCellViewModel = [KDCollectionCellViewModelProtocol]()
+
     
     static func viewModel(model: KDTableViewObject?) -> KDTableViewModel? {
         guard let innerModel = model else {
@@ -24,8 +26,14 @@ class KDTableViewModel: NSObject {
         }
         
         for (_, element) in innerModel.collectArray.enumerated() {
-            if let item = KDCollectionCellViewModel.viewModel(model: element) {
+            if let item = KDHorizontalScrollCellViewModel.viewModel(model: element) {
                 viewModel.collectionCellViewModel.append(item)
+            }
+        }
+        
+        for (_, element) in innerModel.waterFlowArray.enumerated() {
+            if let item = KDWaterFlowCellViewModel.viewModel(model: element) {
+                viewModel.waterFlowCellViewModel.append(item)
             }
         }
 

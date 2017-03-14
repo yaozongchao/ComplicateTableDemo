@@ -12,6 +12,7 @@ import SwiftyJSON
 struct KDTableViewObject {
     var collectArray = [KDCollectCellObject]()
     var tableArray = [KDTableCellObject]()
+    var waterFlowArray = [KDWaterFlowObject]()
     
     static func createObject(jsonStr: String?) -> KDTableViewObject? {
         guard let innerJson = jsonStr else {
@@ -33,6 +34,14 @@ struct KDTableViewObject {
             item.bgColor = UIColor.yellow
             item.title = collectJson["title"].stringValue
             model.collectArray.append(item)
+        }
+        
+        let waterFlowCollect = json["water_flow"].arrayValue
+        for waterFlowJson in waterFlowCollect {
+            let item = KDWaterFlowObject.init(id: "1")
+            item.bgColor = UIColor.blue
+            item.title = waterFlowJson["title"].stringValue
+            model.waterFlowArray.append(item)
         }
         
         return model
